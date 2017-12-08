@@ -1,0 +1,27 @@
+extends layout
+
+block issue
+  div
+    ul(class="issueList")
+      each element in issues
+        li
+          div
+            h2= element.title
+            h4= element.body
+            a(href=element.html_url) GitHub link
+            p= "State: " + element.state
+            p= "Issue created: " + element.created_at
+            p= "Issue updated: " + element.updated_at
+            //p= "Author: " + element.user.login
+            p= "Number of comments: " + element.comments
+      else
+        li There are no values
+block notification
+  div
+    ul(class="notificationList")
+      each element in notifications
+        li
+          div
+            p= element
+      else
+        li There are no values
